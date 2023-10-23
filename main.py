@@ -43,7 +43,7 @@ for epoch in range(400):
         importance = norm_sum / np.sum(norm_sum)
         budget = []
         for im in importance:
-            budget.extend([epsilon * 0.25] * 2)
+            budget.extend([epsilon * im] * 2)
         for u in np.random.choice(range(num_user), train_batch):
             data = train_set[u:u+1, :]
             loc_model = copy.deepcopy(model)
